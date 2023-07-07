@@ -1,0 +1,184 @@
+@import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@700&display=swap');
+
+* {
+    font-family: "Montserrat", sans-serif;
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+/* Estilos para el contenedor del navbar */
+.navbar {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    background-color: #f8f8f8;
+    padding: 10px;
+}
+
+/* Estilos para los elementos del navbar */
+.navbar a {
+    color: #333;
+    text-decoration: none;
+    padding: 10px;
+}
+
+/* Estilos para el ícono */
+.navbar .cart-icon {
+    font-size: 20px;
+}
+
+/* Estilos para el elemento activo */
+.navbar a.active {
+    color: #10B981; /* Color rojo como ejemplo */
+}
+
+
+/* Styling for the hero section */
+.hero {
+    position: relative;
+    height: 85vh; /* Adjust the height as needed */
+    background-color: url('path/to/your-image.jpg'); /* Replace with your own image path */
+    background-size: cover;
+    background-position: center;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: #ffffff;
+    text-align: center;
+}
+
+.hero-content {
+    max-width: 800px;
+    margin: 0 auto;
+    padding: 20px;
+}
+
+.hero h1 {
+    font-size: 36px;
+    margin-bottom: 20px;
+}
+
+.hero p {
+    font-size: 18px;
+    margin-bottom: 30px;
+}
+
+.cta-button {
+    display: inline-block;
+    padding: 12px 20px;
+    background-color: #ff5e14;
+    color: #ffffff;
+    font-size: 16px;
+    text-decoration: none;
+    border-radius: 4px;
+}
+
+html {
+    font-size: 15px;
+}
+
+.cards-container {
+    background: #1F2937;
+    font-family: "Montserrat", sans-serif;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+header {
+    color: hsl(233, 13%, 49%);
+    margin: 3.3rem 0;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+.cards {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-wrap: wrap;
+    padding: 2.5rem;
+}
+
+.card {
+    background: #fff;
+    color: #6d708d;
+    border-radius: 0.8rem;
+}
+
+.cards .card.active {
+    background: linear-gradient(
+    135deg,
+    #c5e9c7 0%,
+    #10B981 100%
+    );
+    color: #fff;
+    display: flex;
+    align-items: center;
+    z-index: 1;
+}
+
+ul {
+    margin: 2.6rem;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: space-around;
+}
+
+ul li {
+    list-style-type: none;
+    display: flex;
+    justify-content: center;
+    width: 100%;
+    padding: 1rem 0;
+}
+
+ul li.price {
+    font-size: 3rem;
+    color: #494c5f;
+    padding-bottom: 2rem;
+}
+
+.shadow {
+    box-shadow: -5px 5px 15px 1px rgba(0, 0, 0, 0.1);
+}
+
+.card.active .price {
+    color: #494c5f;
+}
+
+.btn {
+    margin-top: 1rem;
+    height: 2.6rem;
+    width: 13.3rem;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border-radius: 4px;
+    background-color: #10B981;
+    color: white;
+    outline: none;
+    border: 0;
+    font-weight: bold;
+}
+
+.active-btn {
+    background: #fff;
+    color: #10B981;
+}
+
+.bottom-bar {
+    border-bottom: 2px solid hsla(240, 8%, 85%, 0.582);
+}
+
+.card.active .bottom-bar {
+    border-bottom: 2px solid hsla(240, 8%, 85%, 0.253);
+}
+
+.pack {
+    font-size: 1.1rem;
+}

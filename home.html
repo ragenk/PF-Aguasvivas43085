@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css">
+    <link rel="stylesheet" href="/style/home.css">
+    <title>Cube Media</title>
+</head>
+<body>
+
+    <div class="navbar">
+        <a href="#" class="active">Inicio</a>
+        <a href="#">
+        <i id="carrito-icon" class="fas fa-shopping-cart cart-icon"></i>
+        </a>
+    </div>
+
+    <!-- <header class="hero">
+        <div class="hero-content">
+        <h1>Welcome to Your Website</h1>
+        <p>A short tagline or description goes here</p>
+        <a href="#" class="cta-button">Get Started</a>
+        </div>
+    </header> -->
+
+
+    <header>
+        <h1>Nuestros Paquetes de Desarrollo Web</h1>
+    </header>
+
+    <div class="cards-container">
+        <div class="cards">
+            <div class="card shadow">
+                <ul>
+                <li class="pack">Básico</li>
+                <li id="basic" class="price bottom-bar">&dollar;199.99</li>
+                <li class="bottom-bar">Landing Page</li>
+                <li class="bottom-bar">Diseño Responsivo</li>
+                <li class="bottom-bar">Correos Corporativos (3)</li>
+                <li class="bottom-bar">Revisiones (2)</li>
+                <li><button class="btn">Elegir plan</button></li>
+                </ul>
+            </div>
+            <div class="card active">
+                <ul>
+                <li class="pack">Pro</li>
+                <li id="profesional" class="price bottom-bar">&dollar;249.99</li>
+                <li class="bottom-bar">+Paquete Básico</li>
+                <li class="bottom-bar">5 Páginas</li>
+                <li class="bottom-bar">Correos Corportivos (+7)</li>
+                <li class="bottom-bar">Revisiones (+1)</li>
+                <li class="bottom-bar">Hosting gratis (6 meses)</li>
+                <li><button class="btn active-btn">Elegir plan</button></li>
+                </ul>
+            </div>
+            <div class="card shadow">
+                <ul>
+                <li class="pack">Pro Plus</li>
+                <li id="proPlus" class="price bottom-bar">&dollar;499.99</li>
+                <li class="bottom-bar">+Paquete Pro</li>
+                <li class="bottom-bar">E-Commerce</li>
+                <li class="bottom-bar">Web Analytics</li>
+                <li class="bottom-bar">SEO</li>
+                <li><button class="btn">Elegir plan</button></li>
+                </ul>
+            </div>
+        </div>
+    </div>
+
+    <div id="modal" class="modal">
+        <div class="modal-content">
+            <span class="close">&times;</span>
+            <h2>Resumen del carrito</h2>
+            <div id="carrito-container"></div>
+            <button id="checkout-btn">Ir al checkout</button>
+            <button id="limpiar-carrito">Limpiar carrito</button>
+        </div>
+    </div>  
+      
+<script src="/js/home.js"></script>
+<script src="/js/checkout.js"></script>
+</body>
+</html>
