@@ -5,6 +5,7 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css">
+    <link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/npm/toastify-js/src/toastify.min.css">
     <link rel="stylesheet" href="/style/home.css">
     <title>Cube Media</title>
 </head>
@@ -12,7 +13,7 @@
 
     <div class="navbar">
         <a href="#" class="active">Inicio</a>
-        <a href="#">
+        <a href="checkout.html">
         <i id="carrito-icon" class="fas fa-shopping-cart cart-icon"></i>
         </a>
     </div>
@@ -24,7 +25,6 @@
         <a href="#" class="cta-button">Get Started</a>
         </div>
     </header> -->
-
 
     <header>
         <h1>Nuestros Paquetes de Desarrollo Web</h1>
@@ -68,18 +68,8 @@
             </div>
         </div>
     </div>
-
-    <div id="modal" class="modal">
-        <div class="modal-content">
-            <span class="close">&times;</span>
-            <h2>Resumen del carrito</h2>
-            <div id="carrito-container"></div>
-            <button id="checkout-btn">Ir al checkout</button>
-            <button id="limpiar-carrito">Limpiar carrito</button>
-        </div>
-    </div>  
-      
+    
 <script src="/js/home.js"></script>
-<script src="/js/checkout.js"></script>
+<script type="text/javascript" src="https://cdn.jsdelivr.net/npm/toastify-js"></script>
 </body>
 </html>

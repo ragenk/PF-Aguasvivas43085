@@ -2,7 +2,6 @@
 
 * {
     font-family: "Montserrat", sans-serif;
-    box-sizing: border-box;
     margin: 0;
     padding: 0;
 }
@@ -12,13 +11,13 @@
     display: flex;
     justify-content: space-between;
     align-items: center;
-    background-color: #f8f8f8;
+    background-color: #1F2937;
     padding: 10px;
 }
 
 /* Estilos para los elementos del navbar */
 .navbar a {
-    color: #333;
+    color: #fff;
     text-decoration: none;
     padding: 10px;
 }
@@ -28,50 +27,14 @@
     font-size: 20px;
 }
 
+.con-producto {
+    color: #10B981;
+    font-size: 24px;
+}
+
 /* Estilos para el elemento activo */
 .navbar a.active {
-    color: #10B981; /* Color rojo como ejemplo */
-}
-
-
-/* Styling for the hero section */
-.hero {
-    position: relative;
-    height: 85vh; /* Adjust the height as needed */
-    background-color: url('path/to/your-image.jpg'); /* Replace with your own image path */
-    background-size: cover;
-    background-position: center;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    color: #ffffff;
-    text-align: center;
-}
-
-.hero-content {
-    max-width: 800px;
-    margin: 0 auto;
-    padding: 20px;
-}
-
-.hero h1 {
-    font-size: 36px;
-    margin-bottom: 20px;
-}
-
-.hero p {
-    font-size: 18px;
-    margin-bottom: 30px;
-}
-
-.cta-button {
-    display: inline-block;
-    padding: 12px 20px;
-    background-color: #ff5e14;
-    color: #ffffff;
-    font-size: 16px;
-    text-decoration: none;
-    border-radius: 4px;
+    color: #10B981;
 }
 
 html {
@@ -80,14 +43,13 @@ html {
 
 .cards-container {
     background: #1F2937;
-    font-family: "Montserrat", sans-serif;
     display: flex;
     flex-direction: column;
     align-items: center;
 }
 
 header {
-    color: hsl(233, 13%, 49%);
+    color: #1F2937;
     margin: 3.3rem 0;
     display: flex;
     flex-direction: column;
@@ -110,11 +72,7 @@ header {
 }
 
 .cards .card.active {
-    background: linear-gradient(
-    135deg,
-    #c5e9c7 0%,
-    #10B981 100%
-    );
+    background: #10B981;
     color: #fff;
     display: flex;
     align-items: center;
@@ -148,7 +106,7 @@ ul li.price {
 }
 
 .card.active .price {
-    color: #494c5f;
+    color: #fff;
 }
 
 .btn {

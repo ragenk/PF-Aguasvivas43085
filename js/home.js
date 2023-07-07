@@ -3,14 +3,11 @@ Proyecto Final - Rafael Aguasvivas
 Comision 43085
 ------------------------------------ */
 
+// Capturando el icono del carrito para luego cambiarle el estilo
+const carritoIcon = document.getElementById('carrito-icon');
+
 // Capturar todos los botones del plan
 const elegirPlan = document.querySelectorAll('.btn');
-
-// Capturar el modal y los botones del modal
-const modal = document.getElementById('modal');
-const modalContent = document.querySelector('.modal-content');
-const checkoutBtn = document.getElementById('checkout-btn');
-const limpiarCarritoBtn = document.getElementById('limpiar-carrito');
 
 // Agregar un eventListener a todos los botones
 elegirPlan.forEach(function(button) {
@@ -26,40 +23,32 @@ elegirPlan.forEach(function(button) {
     });
 });
 
-// Event listener para abrir el modal
-document.getElementById('carrito-icon').addEventListener('click', function() {
-    console.log('Icono del carrito clickeado');
-    modal.style.display = 'block';
-});
-
-// Event listener para cerrar el modal al hacer clic en la "x"
-document.querySelector('.close').addEventListener('click', function() {
-    modal.style.display = 'none';
-});
-
-// Event listener para cerrar el modal al hacer clic fuera del contenido
-window.addEventListener('click', function(event) {
-    if (event.target === modal) {
-        modal.style.display = 'none';
-    }
-});
-
-// Event listener para el botón de ir al checkout
-checkoutBtn.addEventListener('click', function() {
-    // Lógica para redirigir al checkout
-});
-
-// Event listener para el botón de limpiar carrito
-limpiarCarritoBtn.addEventListener('click', function() {
-    limpiarCarrito();
-});
-
 // Creamos un array para el carrito
 let carrito = [];
 
 // Una funcion para agregar el plan seleccionado al array carrito
 function agregarAlCarrito(planName, precioInt) {
-    carrito = [];
+    carrito = []; // Como no queremos que se agreguen mas de un plan al carrito, limpiamos el array cada vez que se agrega un plan.
+
+    // Agregamos Tostify a nuestro proyecto
+    Toastify({
+        text: "Plan agregado al carrito",
+        duration: 3000,
+        destination: "checkout.html",
+        newWindow: false,
+        close: true,
+        gravity: "bottom",
+        position: "right",
+        stopOnFocus: true,
+        style: {
+        background: "#10B981",
+        },
+        onClick: function(){}
+    }).showToast();
+
+    // Le asignamos la clase .con-producto al carrito
+    carritoIcon.classList.add('con-producto');
+
     // Creamos el objeto plan
     const plan = {
         name: planName,
