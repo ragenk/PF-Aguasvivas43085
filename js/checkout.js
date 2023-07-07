@@ -60,7 +60,9 @@ function limpiarCarrito() {
                                 </div>`;
 }
 
+// Funcion para completar la compra usando Sweet Alert
 function completarCompra() {
+    // Confirmamos que el carrito no este vacio
     if (carritoLocal && carritoLocal.length > 0) {
         const swalWithBootstrapButtons = Swal.mixin({
             customClass: {
@@ -81,17 +83,16 @@ function completarCompra() {
         }).then((result) => {
             if (result.isConfirmed) {
             swalWithBootstrapButtons.fire(
-                'Orden Cancelada',
-                'Aquí estaremos si cambias de opinion.',
+                'Orden Completada',
+                'Gracias por contratar nuestros servicios.',
                 'success'
             )
             } else if (
-            /* Read more about handling dismissals below */
             result.dismiss === Swal.DismissReason.cancel
             ) {
             swalWithBootstrapButtons.fire(
-                'Cancelled',
-                'Your imaginary file is safe :)',
+                'Orden Cancelada',
+                'Aquí estaremos si cambias de opinion.',
                 'error'
             )
             }
