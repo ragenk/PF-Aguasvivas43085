@@ -5,7 +5,7 @@ Comision 43085
 
 // Variables y Arrays
 const arrUsers = JSON.parse(localStorage.getItem("arrUsers")) || [];
-const arrAvatar = ['/img/avatar1.png','/img/avatar2.png','/img/avatar3.png','/img/avatar4.png']
+const arrAvatar = ['./img/avatar1.png','./img/avatar2.png','./img/avatar3.png','./img/avatar4.png']
 const username = document.getElementById("username");
 const password = document.getElementById("pwd");
 const container = document.querySelector('.container');
