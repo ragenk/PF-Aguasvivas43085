@@ -14,24 +14,56 @@ if (carritoLocal && carritoLocal.length > 0) {
     carritoLocal.forEach(function(plan) {
     const planName = plan.name;
     const planPrice = plan.price;
+    
+    // Insertamos API para convertir el precio de los paquetes (USD) a precio de moneda local
+    const requestOptions = {
+        method: 'GET',
+    };
 
-    // Crear elementos HTML para mostrar los detalles del plan
-    const planElement = document.createElement('div');
-    planElement.innerHTML = `
-                            <table>
-                                <tr>
-                                    <th>Plan Seleccionado</th>
-                                    <th class="th-right">Precio</th>
-                                </tr>
-                                <tr>
-                                    <td class="th-plan">${planName}</td>
-                                    <td class="th-right th-precio">$${planPrice}</td>
-                                </tr>
-                            </table>
-                            `;
+    // Realizar una solicitud fetch a la API de Geolocation por IP para obtener la moneda local
+    fetch("https://api.geoapify.com/v1/ipinfo?&apiKey=49ec7f2f3d724b088ef5a038f96fab4b", requestOptions)
+        .then(response => response.json())
+        .then(result => {
 
-    // Agregar el elemento del plan al contenedor del carrito
-    carritoContainer.appendChild(planElement);
+            const monedaLocal = result.country.currency
+            
+            // Realizar una solicitud fetch a la API de Currency para obtener la tasa de cambio
+            fetch(`https://api.exchangerate-api.com/v4/latest/USD`)
+            .then((response) => response.json())
+            .then((data) => {
+                // Obtener la tasa de cambio de USD a la moneda objetivo
+                const exchangeRate = data.rates[monedaLocal];
+                console.log("Este es exchangeRate " + exchangeRate)
+
+                // Calcular el precio en la moneda objetivo
+                const planPriceTarget = planPrice * exchangeRate;
+
+                // Crear elementos HTML para mostrar los detalles del plan con el precio convertido
+                const planElement = document.createElement('div');
+                planElement.innerHTML = `
+                                        <table>
+                                            <tr>
+                                            <th>Plan Seleccionado</th>
+                                            <th class="th-right">Precio (${monedaLocal})</th>
+                                            </tr>
+                                            <tr>
+                                            <td class="th-plan">${carritoLocal[0].name}</td>
+                                            <td class="th-right th-precio">$${planPriceTarget.toFixed(2)}</td>
+                                            </tr>
+                                        </table>
+                                        `;
+
+                // Agregar el elemento del plan al contenedor del carrito
+                carritoContainer.appendChild(planElement);
+                })
+                .catch((error) => {
+                // Mostrar un mensaje de error si no se puede obtener la tasa de cambio
+                console.error('Error al obtener la tasa de cambio:', error);
+                });
+
+        })
+        .catch(error => console.log('error', error));
+
 });
 
 } else {
@@ -70,8 +102,7 @@ function completarCompra() {
             cancelButton: 'btn btn-red'
             },
             buttonsStyling: false
-        })
-        
+        })        
         swalWithBootstrapButtons.fire({
             title: '¿Estás seguro?',
             text: "Estas a punto de procesar la orden.",
