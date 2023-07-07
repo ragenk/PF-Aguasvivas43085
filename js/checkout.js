@@ -18,8 +18,16 @@ if (carritoLocal && carritoLocal.length > 0) {
     // Crear elementos HTML para mostrar los detalles del plan
     const planElement = document.createElement('div');
     planElement.innerHTML = `
-                            <p>${planName}</p>
-                            <p>${planPrice}</p>
+                            <table>
+                                <tr>
+                                    <th>Plan Seleccionado</th>
+                                    <th class="th-right">Precio</th>
+                                </tr>
+                                <tr>
+                                    <td class="th-plan">${planName}</td>
+                                    <td class="th-right th-precio">$${planPrice}</td>
+                                </tr>
+                            </table>
                             `;
 
     // Agregar el elemento del plan al contenedor del carrito
@@ -29,7 +37,10 @@ if (carritoLocal && carritoLocal.length > 0) {
 } else {
     // Mostrar un mensaje si el carrito está vacío
     const emptyMessage = document.createElement('p');
-    emptyMessage.textContent = 'El carrito está vacío.';
+    emptyMessage.innerHTML = `
+                            <div class="vacio-container">
+                                <p>El carrito está vacío. <a href="home.html">Volver a seleccionar.</a></p>
+                            </div>`;
     carritoContainer.appendChild(emptyMessage);
 }
 
@@ -43,5 +54,49 @@ if (carritoLocal && carritoLocal.length > 0) {
 // Función para limpiar el carrito y borrar los datos del localStorage
 function limpiarCarrito() {
     localStorage.removeItem('carrito');
-    carritoContainer.innerHTML = '<p>El carrito está vacío.</p>';
+    carritoContainer.innerHTML = `
+                                <div class="vacio-container">
+                                    <p>El carrito está vacío. <a href="home.html">Volver a seleccionar.</a></p>
+                                </div>`;
+}
+
+function completarCompra() {
+    if (carritoLocal && carritoLocal.length > 0) {
+        const swalWithBootstrapButtons = Swal.mixin({
+            customClass: {
+            confirmButton: 'btn',
+            cancelButton: 'btn btn-red'
+            },
+            buttonsStyling: false
+        })
+        
+        swalWithBootstrapButtons.fire({
+            title: '¿Estás seguro?',
+            text: "Estas a punto de procesar la orden.",
+            icon: 'warning',
+            showCancelButton: true,
+            confirmButtonText: 'Sí, estoy seguro',
+            cancelButtonText: 'No, cancela la orden',
+            reverseButtons: false
+        }).then((result) => {
+            if (result.isConfirmed) {
+            swalWithBootstrapButtons.fire(
+                'Orden Cancelada',
+                'Aquí estaremos si cambias de opinion.',
+                'success'
+            )
+            } else if (
+            /* Read more about handling dismissals below */
+            result.dismiss === Swal.DismissReason.cancel
+            ) {
+            swalWithBootstrapButtons.fire(
+                'Cancelled',
+                'Your imaginary file is safe :)',
+                'error'
+            )
+            }
+        })
+    } else {
+        Swal.fire('El carrito está vacio.')
+    }
 }

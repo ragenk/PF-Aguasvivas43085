@@ -3,16 +3,29 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+    <link rel="stylesheet" href="/style/checkout.css">
+    <title>Cube Media - Checkout</title>
 </head>
 <body>
     
-    <h1>Carrito de compras</h1>
-
-    <div id="carrito-container"></div>
-
-    <button id="limpiar-carrito">Limpiar Carrito</button>
+    <main>
+        <section>
+            <div class="container">
+                <div>
+                    <h1>Resumen de <span>compra</span></h1>
+                </div>
+                
+                <div id="carrito-container"></div>
+                
+                <div>
+                    <button class="btn" id="completar-compra" onClick="completarCompra()">Completar Compra</button>
+                    <button class="btn btn-red" id="limpiar-carrito">Limpiar Carrito</button>
+                </div>                
+            </div>
+        </section>
+    </main>
 
 <script src="/js/checkout.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
 </body>
 </html>
